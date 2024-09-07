@@ -4,7 +4,7 @@ import Logo from '../assets/logo.svg'
 
 const Footer = () => {
   return (
-    <footer className=' bg-gradient-to-b  from-[#381a5f] to-black pt-32 h-[400px]'>
+    <footer className=' bg-gradient-to-b  from-[#2e2200] to-black pt-32 h-[400px]'>
               <div className="container mx-auto  max-w-6xl px-4">
                 <div className="flex justify-evenly items-center ">
                     {/* Logo and About */}
