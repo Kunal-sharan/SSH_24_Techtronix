@@ -1,7 +1,5 @@
 "use client"
 import React from 'react'
-import project1 from '../assets/icons1.jpg'
-import project2 from '../assets/icons2.jpg'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import project3 from '../assets/icon3.jpg'

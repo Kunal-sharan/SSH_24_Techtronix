@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
       <div ref={gridRef} className="grid-background absolute top-0 left-0 w-full h-full"></div>
       
       <div className="max-w-[89vw] lg:max-w-[60vw] md:max-w-2xl flex flex-col items-center justify-center z-10">
-        <h1 className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-96">
+        <h1 className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-96 mt-16">
           Get your things done with our College Finder chatbot
         </h1>
         <TextGenerateEffect
