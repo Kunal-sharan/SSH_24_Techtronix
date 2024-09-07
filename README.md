@@ -1,40 +1,53 @@
-<!-- <<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chat with your documents
 
-## Getting Started
+This folder contains a (very) minimal, self-contained example of how to make an application to chat with your documents, using Chroma and Google Gemini's API.
+It uses the 2022 and 2023 U.S state of the union addresses as example documents.
 
-First, run the development server:
+## How it works
+
+The basic flow is as follows:
+
+0. The text documents in the `documents` folder are loaded line by line, then embedded and stored in a Chroma collection.
+
+1. When the user submits a question, it gets embedded using the same model as the documents, and the lines most relevant to the query are retrieved by Chroma.
+2. The user-submitted question is passed to Google Gemini's API, along with the extra context retrieved by Chroma. The Google Gemini API generates a response.
+3. The response is displayed to the user, along with the lines used as extra context.
+
+## Running the example
+
+You will need an Google API key to run this demo.
+
+Install dependencies and run the example:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Install dependencies
+pip install -r requirements.txt
+
+# Load the example documents into Chroma
+python load_data.py
+
+# Run the chatbot
+python main.py
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Example output:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+Query: What was said about the pandemic?
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Thinking...
 
-## Learn More
+Based on the given context, several points were made about the pandemic. First, it is described as punishing, indicating the severity and impact it had on various aspects of life. It is mentioned that schools were closed and everything was being shut down in response to the COVID crisis, suggesting the significant measures taken to combat the virus.
 
-To learn more about Next.js, take a look at the following resources:
+The context then shifts to discussing the progress made in the fight against the pandemic itself. While no specific details are provided, it is implied that there has been progress, though the extent of it is unclear.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Additionally, it is stated that children were already facing struggles before the pandemic, such as bullying, violence, trauma, and the negative effects of social media. This suggests that these issues were likely exacerbated by the pandemic.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The context then mentions a spike in violent crime in 2020, which is attributed to the first year of the pandemic. This implies that there was an increase in violent crime during that time period, but the underlying causes or specific details are not provided.
 
-## Deploy on Vercel
+Lastly, it is mentioned that the pandemic also disrupted global supply chains. Again, no specific details are given, but this suggests that the pandemic had negative effects on the movement and availability of goods and resources at a global level.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+In conclusion, based on the provided context, it is stated that the pandemic has been punishing and has resulted in the closure of schools and the shutdown of various activities. Progress is mentioned in fighting against the pandemic, though the specifics are not given. The pandemic is also said to have worsened pre-existing issues such as bullying and violence among children, and disrupted global supply chains.
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# Hackathon
->>>>>>> 8d5f8666ed7efd8eac0f09b2fe8d5ccaa6e1eabb -->
+You can replace the example text documents in the `documents` folder with your own documents, and the chatbot will use those instead.
